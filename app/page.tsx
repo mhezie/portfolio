@@ -13,7 +13,6 @@ export default function HomePage() {
     const isDark = saved === "dark" || (!saved && prefersDark);
 
     document.documentElement.classList.toggle("dark", isDark);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDarkMode(isDark);
     setMounted(true);
   }, []);
@@ -27,7 +26,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-      {/* Mobile top bar */}
       <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4 lg:hidden dark:border-gray-800">
         <span className="text-lg font-bold">Collins Ewere</span>
         <div className="flex items-center gap-2">
@@ -51,15 +49,20 @@ export default function HomePage() {
       {menuOpen && (
         <div className="border-b border-gray-200 px-5 py-4 lg:hidden dark:border-gray-800">
           <div className="flex flex-col gap-3 text-sm font-medium">
-            <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+            <a href="#about" onClick={() => setMenuOpen(false)}>
+              About
+            </a>
+            <a href="#projects" onClick={() => setMenuOpen(false)}>
+              Projects
+            </a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
           </div>
         </div>
       )}
 
       <div className="mx-auto grid max-w-6xl lg:grid-cols-[300px_1fr]">
-        {/* LEFT PANEL */}
         <aside className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:px-8 lg:py-14">
           <div>
             <h1 className="text-4xl font-bold tracking-tight">Collins Ewere</h1>
@@ -67,7 +70,8 @@ export default function HomePage() {
               Aspiring Software Engineer
             </p>
             <p className="mt-4 max-w-[16rem] text-sm leading-6 text-gray-600 dark:text-gray-300">
-              First Class Computer Science graduate building full-stack products and training for SDE roles.
+              First Class Computer Science graduate building full-stack products
+              and training for SDE roles.
             </p>
 
             <nav className="mt-10 flex flex-col gap-3 text-xs font-semibold tracking-[0.18em] text-gray-500">
@@ -84,10 +88,20 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 pb-2 text-sm text-gray-500">
-            <a href="https://github.com/mhezie" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600">
+            <a
+              href="https://github.com/mhezie"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-600"
+            >
               GitHub
             </a>
-            <a href="https://www.linkedin.com/in/collins-ewere/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600">
+            <a
+              href="https://www.linkedin.com/in/collins-ewere/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-600"
+            >
               LinkedIn
             </a>
             <a href="mailto:toewerecollins@gmail.com" className="hover:text-indigo-600">
@@ -104,9 +118,7 @@ export default function HomePage() {
           </div>
         </aside>
 
-        {/* RIGHT CONTENT */}
         <main className="px-5 py-10 lg:px-10 lg:py-14">
-          {/* ABOUT */}
           <section id="about" className="mb-20">
             <h2 className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">
               ABOUT
@@ -131,35 +143,25 @@ export default function HomePage() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-2">
-              {[
-                "Next.js",
-                "TypeScript",
-                "Python",
-                "Java",
-                "SQL",
-                "AWS",
-                "Android",
-                "DSA",
-                "Machine Learning",
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-gray-300 px-3 py-1 text-xs dark:border-gray-700"
-                >
-                  {skill}
-                </span>
-              ))}
+              {["Next.js", "TypeScript", "Python", "Java", "SQL", "AWS", "Android", "DSA", "Machine Learning"].map(
+                (skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-gray-300 px-3 py-1 text-xs dark:border-gray-700"
+                  >
+                    {skill}
+                  </span>
+                )
+              )}
             </div>
           </section>
 
-          {/* PROJECTS */}
           <section id="projects" className="mb-20">
             <h2 className="mb-6 text-xs font-semibold tracking-[0.18em] text-gray-500">
               PROJECTS
             </h2>
 
             <div className="space-y-6">
-              {/* 1. Personal Finance Tracker */}
               <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <h3 className="text-xl font-semibold">Personal Finance Tracker</h3>
@@ -169,15 +171,15 @@ export default function HomePage() {
                 </div>
 
                 <p className="mt-4 text-[15px] leading-7 text-gray-600 dark:text-gray-300">
-                  Full-stack finance app for tracking income and expenses, with authentication,
-                  dashboards, filters, and export features.
+                  Full-stack UK finance app for tracking income and expenses, with authentication,
+                  dashboards, a monthly budget stored per user, and export.
                 </p>
 
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
                   <li>Auth with Supabase</li>
                   <li>Add, edit, and delete transactions</li>
-                  <li>Income vs expenses charts</li>
-                  <li>Search, filters, CSV export, dark mode</li>
+                  <li>Income vs expenses charts, date filters, CSV export</li>
+                  <li>Monthly budget persisted in Postgres with row-level security</li>
                 </ul>
 
                 <div className="mt-5 flex flex-wrap gap-2">
@@ -191,27 +193,26 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
                   <a
-                    href="https://personal-finance-tracker-vmc6.vercel.app"
+                    href="https://personal-finance-tracker-mauve-nine.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+                    className="text-indigo-600 hover:underline dark:text-indigo-400"
                   >
-                    Live Demo ↗
+                    Live demo ↗
                   </a>
                   <a
                     href="https://github.com/mhezie/personal-finance-tracker"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800"
+                    className="text-indigo-600 hover:underline dark:text-indigo-400"
                   >
                     GitHub ↗
                   </a>
                 </div>
               </article>
 
-              {/* 2. FYP */}
               <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <h3 className="text-xl font-semibold">Stock Price Forecasting Models</h3>
@@ -242,12 +243,18 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <p className="mt-5 text-sm text-gray-500">
-                  Academic project · code not publicly available
-                </p>
+                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+                  <a
+                    href="https://github.com/mhezie/stock-price-prediction-ai-ml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 hover:underline dark:text-indigo-400"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
               </article>
 
-              {/* 3. ParkEase */}
               <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <h3 className="text-xl font-semibold">ParkEase – Android Parking App</h3>
@@ -278,14 +285,20 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <p className="mt-5 text-sm text-gray-500">
-                  Academic project · code not publicly available
-                </p>
+                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+                  <a
+                    href="https://github.com/mhezie/park-ease"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 hover:underline dark:text-indigo-400"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
               </article>
             </div>
           </section>
 
-          {/* CONTACT */}
           <section id="contact" className="mb-12">
             <h2 className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">
               CONTACT
