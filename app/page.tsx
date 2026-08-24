@@ -285,16 +285,9 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
-                  <a
-                    href="https://github.com/mhezie/park-ease"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline dark:text-indigo-400"
-                  >
-                    GitHub ↗
-                  </a>
-                </div>
+                <p className="mt-5 text-sm text-gray-500">
+                  Academic project · code not publicly available
+                </p>
               </article>
             </div>
           </section>
