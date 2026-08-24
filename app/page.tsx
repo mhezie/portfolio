@@ -243,16 +243,9 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
-                  <a
-                    href="https://github.com/mhezie/stock-price-prediction-ai-ml"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline dark:text-indigo-400"
-                  >
-                    GitHub ↗
-                  </a>
-                </div>
+                <p className="mt-5 text-sm text-gray-500">
+                  Academic project · code not publicly available
+                </p>
               </article>
 
               <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
