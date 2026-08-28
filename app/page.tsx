@@ -11,21 +11,20 @@ export default function HomePage() {
     const saved = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = saved === "dark" || (!saved && prefersDark);
-
     document.documentElement.classList.toggle("dark", isDark);
     setDarkMode(isDark);
     setMounted(true);
   }, []);
 
   const toggleDarkMode = () => {
-    const newValue = !darkMode;
-    setDarkMode(newValue);
-    document.documentElement.classList.toggle("dark", newValue);
-    localStorage.setItem("theme", newValue ? "dark" : "light");
+    const next = !darkMode;
+    setDarkMode(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+    <div className="min-h-screen bg-slate-50 font-sans text-gray-900 dark:bg-gray-950 dark:text-gray-100">
       <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4 lg:hidden dark:border-gray-800">
         <span className="text-lg font-bold">Collins Ewere</span>
         <div className="flex items-center gap-2">
@@ -62,46 +61,33 @@ export default function HomePage() {
         </div>
       )}
 
-      <div className="mx-auto grid max-w-6xl lg:grid-cols-[300px_1fr]">
+      <div className="mx-auto grid max-w-6xl lg:grid-cols-[280px_1fr]">
         <aside className="hidden lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:px-8 lg:py-14">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight">Collins Ewere</h1>
-            <p className="mt-2 text-base font-medium text-indigo-600 dark:text-indigo-400">
-              Aspiring Software Engineer
+            <p className="text-xs font-semibold tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
+              GRADUATE SDE
             </p>
-            <p className="mt-4 max-w-[16rem] text-sm leading-6 text-gray-600 dark:text-gray-300">
-              First Class Computer Science graduate building full-stack products
-              and training for SDE roles.
+            <h1 className="mt-3 text-4xl font-bold tracking-tight">Collins Ewere</h1>
+            <p className="mt-3 max-w-[16rem] text-sm leading-6 text-gray-600 dark:text-gray-400">
+              First Class CS (BCU). Full-stack products with auth, Postgres, and RLS.
             </p>
-
             <nav className="mt-10 flex flex-col gap-3 text-xs font-semibold tracking-[0.18em] text-gray-500">
-              <a href="#about" className="transition hover:text-indigo-600 dark:hover:text-indigo-400">
+              <a href="#about" className="hover:text-indigo-600 dark:hover:text-indigo-400">
                 ABOUT
               </a>
-              <a href="#projects" className="transition hover:text-indigo-600 dark:hover:text-indigo-400">
+              <a href="#projects" className="hover:text-indigo-600 dark:hover:text-indigo-400">
                 PROJECTS
               </a>
-              <a href="#contact" className="transition hover:text-indigo-600 dark:hover:text-indigo-400">
+              <a href="#contact" className="hover:text-indigo-600 dark:hover:text-indigo-400">
                 CONTACT
               </a>
             </nav>
           </div>
-
           <div className="flex flex-wrap items-center gap-3 pb-2 text-sm text-gray-500">
-            <a
-              href="https://github.com/mhezie"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-600"
-            >
+            <a href="https://github.com/mhezie" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600">
               GitHub
             </a>
-            <a
-              href="https://www.linkedin.com/in/collins-ewere/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-600"
-            >
+            <a href="https://www.linkedin.com/in/collins-ewere/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600">
               LinkedIn
             </a>
             <a href="mailto:toewerecollins@gmail.com" className="hover:text-indigo-600">
@@ -119,31 +105,18 @@ export default function HomePage() {
         </aside>
 
         <main className="px-5 py-10 lg:px-10 lg:py-14">
-          <section id="about" className="mb-20">
-            <h2 className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">
+          <section id="about" className="mb-16">
+            <h2 className="mb-4 text-xs font-semibold tracking-[0.18em] text-gray-500">
               ABOUT
             </h2>
-
-            <div className="space-y-4 text-[15px] leading-7 text-gray-600 dark:text-gray-300">
-              <p>
-                Hi, I’m Collins — a First Class BSc (Hons) Computer Science graduate from
-                Birmingham City University. I build practical software across full-stack web,
-                cloud, mobile, and applied machine learning.
-              </p>
-              <p>
-                I’ve worked on end-to-end projects ranging from AI forecasting models and Android
-                applications to cloud-hosted web systems. Alongside university work, I build personal
-                products and train deliberately for software engineering roles through DSA practice
-                and multi-file debugging.
-              </p>
-              <p>
-                I’m looking for graduate/junior SDE roles in top tech and fintech, where I can
-                contribute to real products and keep growing as an engineer.
-              </p>
-            </div>
-
-            <div className="mt-7 flex flex-wrap gap-2">
-              {["Next.js", "TypeScript", "Python", "Java", "SQL", "AWS", "Android", "DSA", "Machine Learning"].map(
+            <p className="max-w-2xl text-[16px] leading-7 text-gray-700 dark:text-gray-300">
+              First Class BSc Computer Science, Birmingham City University. I
+              build tools I actually use: a UK finance tracker and a job board
+              that share one Supabase identity. Daily DSA toward graduate SDE
+              roles.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Next.js", "TypeScript", "Python", "Java", "SQL", "Supabase", "Android", "DSA"].map(
                 (skill) => (
                   <span
                     key={skill}
@@ -156,200 +129,145 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section id="projects" className="mb-20">
+          <section id="projects" className="mb-16">
             <h2 className="mb-6 text-xs font-semibold tracking-[0.18em] text-gray-500">
               PROJECTS
             </h2>
 
-            <div className="space-y-6">
-              <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <h3 className="text-xl font-semibold">Personal Finance Tracker</h3>
-                  <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
-                    Personal Project
-                  </span>
-                </div>
-
-                <p className="mt-4 text-[15px] leading-7 text-gray-600 dark:text-gray-300">
-                  Full-stack UK finance app for tracking income and expenses, with authentication,
-                  dashboards, a monthly budget stored per user, and export.
-                </p>
-
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-                  <li>Auth with Supabase</li>
-                  <li>Add, edit, and delete transactions</li>
-                  <li>Income vs expenses charts, date filters, CSV export</li>
-                  <li>Monthly budget persisted in Postgres with row-level security</li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {["Next.js", "TypeScript", "Supabase", "Recharts", "Tailwind"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                    >
-                      {tech}
+            <div className="grid gap-5 md:grid-cols-2">
+              <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                <div className="border-b border-gray-100 bg-slate-50 px-4 py-3 dark:border-gray-800 dark:bg-gray-950">
+                  <p className="text-xs text-gray-500">Balance</p>
+                  <p className="text-2xl font-semibold tracking-tight">£1,936.10</p>
+                  <div className="mt-3 flex gap-2">
+                    <span className="rounded-md bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-950 dark:text-green-300">
+                      Income £3,150
                     </span>
-                  ))}
+                    <span className="rounded-md bg-red-100 px-2 py-1 text-xs text-red-800 dark:bg-red-950 dark:text-red-300">
+                      Spend £1,214
+                    </span>
+                  </div>
                 </div>
-
-                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
-                  <a
-                    href="https://personal-finance-tracker-mauve-nine.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline dark:text-indigo-400"
-                  >
-                    Live demo ↗
-                  </a>
-                  <a
-                    href="https://github.com/mhezie/personal-finance-tracker"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline dark:text-indigo-400"
-                  >
-                    GitHub ↗
-                  </a>
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-semibold">Personal Finance Tracker</h3>
+                    <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-medium text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                      Live
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                    UK £ app. Auth, dashboards, monthly budget in Postgres with RLS — not localStorage.
+                  </p>
+                  <div className="mt-4 flex gap-3 text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                    <a href="https://personal-finance-tracker-mauve-nine.vercel.app" target="_blank" rel="noopener noreferrer">
+                      Live demo ↗
+                    </a>
+                    <a href="https://github.com/mhezie/personal-finance-tracker" target="_blank" rel="noopener noreferrer">
+                      GitHub ↗
+                    </a>
+                  </div>
                 </div>
               </article>
 
-              <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <h3 className="text-xl font-semibold">Job Application Tracker</h3>
-                  <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
-                    Personal Project
-                  </span>
-                </div>
-
-                <p className="mt-4 text-[15px] leading-7 text-gray-600 dark:text-gray-300">
-                  Full-stack board for logging graduate applications. Same Supabase auth as the
-                  finance tracker — one identity, two products, row-level security per user.
-                </p>
-
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-                  <li>Shared email/password auth with the finance app</li>
-                  <li>Create, update status, and delete applications</li>
-                  <li>Filter by applied, interviewing, offer, rejected</li>
-                  <li>Postgres RLS: each user only sees their own rows</li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {["Next.js", "TypeScript", "Supabase", "Tailwind"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                    >
-                      {tech}
+              <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                <div className="space-y-2 border-b border-gray-100 bg-slate-50 px-4 py-3 dark:border-gray-800 dark:bg-gray-950">
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Amazon · SDE</span>
+                    <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[11px] text-blue-800">
+                      Applied
                     </span>
-                  ))}
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Softwire · Graduate SDE</span>
+                    <span className="rounded-full bg-yellow-100 px-2 py-0.5 text-[11px] text-yellow-800">
+                      OA
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span>Citadel · Graduate SWE</span>
+                    <span className="rounded-full bg-gray-200 px-2 py-0.5 text-[11px] text-gray-700">
+                      Saved
+                    </span>
+                  </div>
                 </div>
-
-                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
-                  <a
-                    href="https://job-application-tracker-jade-alpha.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline dark:text-indigo-400"
-                  >
-                    Live demo ↗
-                  </a>
-                  <a
-                    href="https://github.com/mhezie/job-application-tracker"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-indigo-600 hover:underline dark:text-indigo-400"
-                  >
-                    GitHub ↗
-                  </a>
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-semibold">Job Application Tracker</h3>
+                    <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-medium text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                      Live
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                    Same login as finance. One identity, two apps, RLS so users only see their rows.
+                  </p>
+                  <div className="mt-4 flex gap-3 text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                    <a href="https://job-application-tracker-jade-alpha.vercel.app" target="_blank" rel="noopener noreferrer">
+                      Live demo ↗
+                    </a>
+                    <a href="https://github.com/mhezie/job-application-tracker" target="_blank" rel="noopener noreferrer">
+                      GitHub ↗
+                    </a>
+                  </div>
                 </div>
               </article>
 
-              <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <h3 className="text-xl font-semibold">Stock Price Forecasting Models</h3>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
-                    Academic · FYP
-                  </span>
-                </div>
-
-                <p className="mt-4 text-[15px] leading-7 text-gray-600 dark:text-gray-300">
-                  Comparative framework evaluating Random Walk, Linear Regression, LSTM, GBM, and
-                  sentiment-augmented models for next-day stock price forecasting.
-                </p>
-
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-                  <li>Collected OHLCV data and GDELT news sentiment</li>
-                  <li>Engineered features such as Moving Average, RSI, and MACD</li>
-                  <li>Evaluated models using MAE, RMSE, and directional accuracy</li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {["Python", "LSTM", "GBM", "Scikit-learn", "Feature Engineering"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                    >
-                      {tech}
-                    </span>
+              <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                <div className="flex h-28 items-end gap-1 border-b border-gray-100 bg-slate-50 px-4 py-3 dark:border-gray-800 dark:bg-gray-950">
+                  {[40, 55, 48, 70, 62, 80, 75, 88].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-t bg-indigo-400/80 dark:bg-indigo-500/70"
+                      style={{ height: `${h}%` }}
+                    />
                   ))}
                 </div>
-
-                <p className="mt-5 text-sm text-gray-500">
-                  Academic project · code not publicly available
-                </p>
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-semibold">Stock Price Forecasting</h3>
+                    <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                      FYP
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                    LSTM / GBM vs baselines on next-day prices. MAE, RMSE, directional accuracy.
+                  </p>
+                  <p className="mt-4 text-xs text-gray-500">Academic · code private</p>
+                </div>
               </article>
 
-              <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <h3 className="text-xl font-semibold">ParkEase – Android Parking App</h3>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
-                    Academic Project
-                  </span>
+              <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
+                <div className="flex h-28 items-center justify-center border-b border-gray-100 bg-slate-50 dark:border-gray-800 dark:bg-gray-950">
+                  <div className="rounded-full bg-indigo-600 px-4 py-2 text-xs font-medium text-white">
+                    Find parking · England
+                  </div>
                 </div>
-
-                <p className="mt-4 text-[15px] leading-7 text-gray-600 dark:text-gray-300">
-                  Android application for real-time parking availability, booking, and payments
-                  across locations in England.
-                </p>
-
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
-                  <li>Google Maps integration for location search</li>
-                  <li>User authentication, booking, and payment flow</li>
-                  <li>Push notifications and session extension alerts</li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {["Java", "Android Studio", "Google Maps API", "Authentication"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300"
-                    >
-                      {tech}
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="font-semibold">ParkEase</h3>
+                    <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                      Android
                     </span>
-                  ))}
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                    Java Android app: maps, booking, payments, push alerts. Uni project.
+                  </p>
+                  <p className="mt-4 text-xs text-gray-500">Academic · code private</p>
                 </div>
-
-                <p className="mt-5 text-sm text-gray-500">
-                  Academic project · code not publicly available
-                </p>
               </article>
             </div>
           </section>
 
-          <section id="contact" className="mb-12">
-            <h2 className="mb-5 text-xs font-semibold tracking-[0.18em] text-gray-500">
+          <section id="contact" className="mb-10">
+            <h2 className="mb-4 text-xs font-semibold tracking-[0.18em] text-gray-500">
               CONTACT
             </h2>
-
-            <p className="max-w-2xl text-[15px] leading-7 text-gray-600 dark:text-gray-300">
-              I’m open to graduate Software Engineer roles and conversations about full-stack
-              development, fintech products, and applied engineering work. Feel free to reach out.
+            <p className="max-w-xl text-[16px] leading-7 text-gray-700 dark:text-gray-300">
+              Open to graduate / junior SDE roles. Same inbox I use for the live demos.
             </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <a
                 href="mailto:toewerecollins@gmail.com"
-                className="rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-indigo-700"
+                className="rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700"
               >
                 Email Me
               </a>
@@ -357,7 +275,7 @@ export default function HomePage() {
                 href="https://github.com/mhezie"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5 dark:border-gray-700"
+                className="rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium dark:border-gray-700"
               >
                 GitHub ↗
               </a>
@@ -365,7 +283,7 @@ export default function HomePage() {
                 href="https://www.linkedin.com/in/collins-ewere/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5 dark:border-gray-700"
+                className="rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium dark:border-gray-700"
               >
                 LinkedIn ↗
               </a>
@@ -373,7 +291,7 @@ export default function HomePage() {
           </section>
 
           <footer className="border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-gray-800">
-            <p>© {new Date().getFullYear()} Collins Ewere · Built with Next.js + Tailwind CSS</p>
+            <p>© {new Date().getFullYear()} Collins Ewere</p>
           </footer>
         </main>
       </div>
