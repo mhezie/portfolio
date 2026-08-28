@@ -215,6 +215,57 @@ export default function HomePage() {
 
               <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
                 <div className="flex flex-wrap items-start justify-between gap-3">
+                  <h3 className="text-xl font-semibold">Job Application Tracker</h3>
+                  <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                    Personal Project
+                  </span>
+                </div>
+
+                <p className="mt-4 text-[15px] leading-7 text-gray-600 dark:text-gray-300">
+                  Full-stack board for logging graduate applications. Same Supabase auth as the
+                  finance tracker — one identity, two products, row-level security per user.
+                </p>
+
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-gray-600 dark:text-gray-300">
+                  <li>Shared email/password auth with the finance app</li>
+                  <li>Create, update status, and delete applications</li>
+                  <li>Filter by applied, interviewing, offer, rejected</li>
+                  <li>Postgres RLS: each user only sees their own rows</li>
+                </ul>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {["Next.js", "TypeScript", "Supabase", "Tailwind"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-3 text-sm font-medium">
+                  <a
+                    href="https://job-application-tracker-jade-alpha.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 hover:underline dark:text-indigo-400"
+                  >
+                    Live demo ↗
+                  </a>
+                  <a
+                    href="https://github.com/mhezie/job-application-tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 hover:underline dark:text-indigo-400"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
+              </article>
+
+              <article className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+                <div className="flex flex-wrap items-start justify-between gap-3">
                   <h3 className="text-xl font-semibold">Stock Price Forecasting Models</h3>
                   <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
                     Academic · FYP
