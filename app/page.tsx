@@ -67,7 +67,9 @@ export default function HomePage() {
             <p className="text-xs font-semibold tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
               GRADUATE SDE
             </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight">Collins Ewere</h1>
+            <h1 className="mt-3 text-3xl font-bold tracking-tight whitespace-nowrap">
+              Collins Ewere
+            </h1>
             <p className="mt-3 max-w-[16rem] text-sm leading-6 text-gray-600 dark:text-gray-400">
               First Class CS (BCU). Full-stack products with auth, Postgres, and RLS.
             </p>
