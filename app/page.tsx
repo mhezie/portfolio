@@ -124,20 +124,28 @@ export default function HomePage() {
             <p className="max-w-2xl text-[16px] leading-7 text-gray-700 dark:text-gray-300">
               First Class BSc Computer Science, Birmingham City University. I
               build tools I actually use: a UK finance tracker, a job board, and
-              Pence — pay-request links. One Supabase identity, Postgres + RLS.
-              Daily DSA toward graduate SDE roles.
+              Pence — pay-request links with Stripe Checkout. One Supabase
+              identity, Postgres + RLS. Daily DSA toward graduate SDE roles.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {["Next.js", "TypeScript", "Python", "Java", "SQL", "Supabase", "Android", "DSA"].map(
-                (skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-gray-300 px-3 py-1 text-xs dark:border-gray-700"
-                  >
-                    {skill}
-                  </span>
-                )
-              )}
+              {[
+                "Next.js",
+                "TypeScript",
+                "Python",
+                "Java",
+                "SQL",
+                "Supabase",
+                "Stripe",
+                "Android",
+                "DSA",
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-gray-300 px-3 py-1 text-xs dark:border-gray-700"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
           </section>
 
@@ -164,9 +172,10 @@ export default function HomePage() {
                     </span>
                   </div>
                   <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-400">
-                    UK pay-request links. Create an amount in £, copy a public
-                    page. Amounts stored as pence. Public reads go through a
-                    SECURITY DEFINER RPC, not an open table.
+                    UK pay-request links. Amounts stored as integer pence.
+                    Logged-out payers hit a SECURITY DEFINER RPC, then Stripe
+                    Checkout (GBP, test mode). Demo: demo@tracker.app /
+                    Demo1234! — test card 4242 4242 4242 4242.
                   </p>
                   <div className="mt-4 flex gap-3 text-sm font-medium text-indigo-600 dark:text-indigo-400">
                     <a
